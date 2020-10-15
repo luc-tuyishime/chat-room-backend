@@ -1,7 +1,7 @@
 import express from "express";
 import models from "../../models";
 
-const router = express.Router(); /* GET users listing. */
+const router = express.Router();
 
 // GET ALL CHAT ROOM FROM DATABASE
 router.get("/chatrooms", async (req, res, next) => {
