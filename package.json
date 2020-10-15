@@ -1,9 +1,9 @@
 {
     "name": "backend",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "npm run babel-node -- ./src/bin/www",
+        "start": "babel-node -- ./src/bin/www",
         "dev": "nodemon --exec npm run babel-node -- ./src/bin/www",
         "babel-node": "babel-node",
         "db:migrate": "./node_modules/.bin/sequelize db:migrate"
