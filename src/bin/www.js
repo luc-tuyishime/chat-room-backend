@@ -7,10 +7,19 @@ socketIO(server);
 
 const port = process.env.PORT || "7000";
 
-server.listen(port, () => {
-    console.log(`server running on port ${port}`);
+app.set("port", port);
+
+app.get("/", function (request, response) {
+    var result = "App is running";
+    response.send(result);
+}).listen(app.get("port"), function () {
+    console.log("App is running, server is listening on port ", app.get("port"));
 });
-server.on("error", onError);
+
+// server.listen(port, () => {
+//     console.log(`server running on port ${port}`);
+// });
+// server.on("error", onError);
 
 /**
  * Normalize a port into a number, string, or false.
