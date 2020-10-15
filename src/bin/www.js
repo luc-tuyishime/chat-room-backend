@@ -5,8 +5,7 @@ import socketIO from "../helpers/socketIO";
 const server = http.createServer(app);
 socketIO(server);
 
-const port = normalizePort(process.env.PORT || "7000");
-app.set("port", port);
+const port = process.env.PORT || "7000";
 
 server.listen(port, () => {
     console.log(`server running on port ${port}`);
