@@ -1,4 +1,3 @@
-// app.js
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -29,12 +28,12 @@ app.get("*", (req, res) =>
     })
 );
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use((req, res, next) => {
     next(createError(404));
 });
 
-// // error handler
+// Error handler
 app.use((err, req, res, next) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
