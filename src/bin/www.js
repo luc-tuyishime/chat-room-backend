@@ -1,20 +1,19 @@
 import app from "../app";
-import http from "http";
+
 import socketIO from "../helpers/socketIO";
 
-const server = http.createServer(app);
-socketIO(server);
+// const server = http.createServer(app);
 
-const port = process.env.PORT || "7000";
+// const port = process.env.PORT || "7000";
 
-app.set("port", port);
+// app.set("port", port);
 
-app.get("/", function (request, response) {
-    var result = "App is running";
-    response.send(result);
-}).listen(app.get("port"), function () {
-    console.log("App is running, server is listening on port ", app.get("port"));
-});
+// app.get("/", function (request, response) {
+//     var result = "App is running";
+//     response.send(result);
+// }).listen(app.get("port"), function () {
+//     console.log("App is running, server is listening on port ", app.get("port"));
+// });
 
 // server.listen(port, () => {
 //     console.log(`server running on port ${port}`);
@@ -39,6 +38,9 @@ function normalizePort(val) {
 
     return false;
 }
+
+const port = normalizePort(process.env.PORT || "7000");
+app.set("port", port);
 
 /**
  * Event listener for HTTP server "error" event.
@@ -65,3 +67,11 @@ function onError(error) {
             throw error;
     }
 }
+
+const server = app.server.listen(port, () => {
+    process.stdout.write(`Server is running on port: ${port}\n`);
+});
+
+socketIO(server);
+
+app.server.on("error", onError);
