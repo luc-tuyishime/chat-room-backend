@@ -38,8 +38,8 @@ function normalizePort(val) {
     return false;
 }
 
-const port = normalizePort(process.env.PORT || "7000");
-app.set("port", port);
+// const port = normalizePort();
+// app.set("port", port);
 
 /**
  * Event listener for HTTP server "error" event.
@@ -67,8 +67,8 @@ function onError(error) {
     }
 }
 
-const server = app.server.listen(port, () => {
-    process.stdout.write(`Server is running on port: ${port}\n`);
+const server = app.server.listen(process.env.PORT || "7000", () => {
+    process.stdout.write(`Server is running on port: ${process.env.PORT}\n`);
 });
 
 socketIO(server);
