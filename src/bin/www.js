@@ -67,7 +67,7 @@ function onError(error) {
     }
 }
 
-const server = app.listen(process.env.PORT || "7000", () => {
+const server = app.listen(process.env.PORT || 8000, () => {
     process.stdout.write(`Server is running on port: ${process.env.PORT}\n`);
 });
 
